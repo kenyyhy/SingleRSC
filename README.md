@@ -8,6 +8,9 @@ RSC Single Player is a standalone single player RSC reproduction and sandbox. Th
 * To launch you can either double click the 'RSC-Single-Player.jar' file, or use the run.bat (Windows) or run.sh (Unix)
 * To create a new account, click the "New User" button and fill out the information below
 * Login and play
+
+
+* To compile use ant version 8 and use ant compile in the terminal
     
 # Game Information
 * Music player replaced Social tab
