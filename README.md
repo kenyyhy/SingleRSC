@@ -2,7 +2,7 @@
 RSC Single Player is a standalone single player RSC reproduction and sandbox. The application handles itself entirely and does not rely on a local server nor database.
 
 # Requirements
-* Java 8 Onlu
+* Java 8 Only
 
 # Instructions
 * To launch you can either double click the 'RSC-Single-Player.jar' file, or use the run.bat (Windows) or run.sh (Unix)
