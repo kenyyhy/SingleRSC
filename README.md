@@ -15,7 +15,7 @@ RSC Single Player is a standalone single player RSC reproduction and sandbox. Th
 # Game Information
 * Music player replaced Social tab
 * New dynamic login screen
-* Experience modifier is set at 8x
+* Experience modifier is set at 1x but you can go into the source aad change that in constants and recompile
 * All content, including all 50 quests
 * The game can now be resized to your preferred dimensions
 * Swap bank items by right clicking on the item
