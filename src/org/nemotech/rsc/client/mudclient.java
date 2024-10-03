@@ -797,15 +797,14 @@ public class mudclient extends Shell {
 
     private void createMessageTabPanel() {
         /* changes to chat cursors and messages height goes here (and scrollbars for them) */
-        panelMessageTabs = new Menu(surface, 10);
-        int OFFSET = 20;
-        controlTextListChat = panelMessageTabs.addTextListScrollable(5, gameHeight - 55 - 12-OFFSET/*269*/, gameWidth - 10, 56, 1, 20, true);
-        controlTextListAll = panelMessageTabs.addTextListInput(7, gameHeight - 10-OFFSET/*324*/, gameWidth - 10 - 2, 14, 1, 80, false, true);
-        controlTextListQuest = panelMessageTabs.addTextListScrollable(5, gameHeight - 55 - 12-OFFSET/*269*/, gameWidth - 10, 56, 1, 20, true);
-        controlTextListPrivate = panelMessageTabs.addTextListScrollable(5, gameHeight - 55 - 12-OFFSET/*269*/, gameWidth - 10, 56, 1, 20, true);
+        panelMessageTabs = new Menu(surface, 20);
+        int OFFSET = 35;
+        controlTextListChat = panelMessageTabs.addTextListScrollable(20, gameHeight - 55 - 12 - OFFSET, gameWidth - 10, 56, 1, 20, true);
+        controlTextListAll = panelMessageTabs.addTextListInput(17, gameHeight - 10 - OFFSET, gameWidth - 10 - 2, 14, 1, 80, false, true);
+        controlTextListQuest = panelMessageTabs.addTextListScrollable(15, gameHeight - 55 - 12 - OFFSET, gameWidth - 10, 56, 1, 20, true);
+        controlTextListPrivate = panelMessageTabs.addTextListScrollable(15, gameHeight - 55 - 12 - OFFSET, gameWidth - 10, 56, 1, 20, true);
         panelMessageTabs.setFocus(controlTextListAll);
     }
-
     private void disposeAndCollect() {
         if (surface != null) {
             surface.cleanupSprites();
@@ -1203,9 +1202,6 @@ public class mudclient extends Shell {
         int y = 167 - i / 2 + yOff;
         surface.drawBox(56 + xOff, 167 - i / 2 + yOff, 400, i, 0);
         surface.drawBoxEdge(56 + xOff, 167 - i / 2 + yOff, 400, i, 0xffffff);
-        y += 20;
-        surface.drawStringCenter("Welcome to RuneScape " + Util.title(loginUser), 256 + xOff, y, 4, 0xffff00);
-        y += 30;
         String s;
         switch (welcomeLastLoggedInDays) {
             case 0:
@@ -2098,12 +2094,13 @@ public class mudclient extends Shell {
             showOptionMenu = false;
             return;
         }
+        int placement = 12;
         for (int j = 0; j < optionMenuCount; j++) {
             int k = 65535;
-            if (super.mouseX < surface.textWidth(optionMenuEntry[j], 1) && super.mouseY > j * 12 && super.mouseY < 12 + j * 12) {
+            if (super.mouseX < surface.textWidth(optionMenuEntry[j], 1) && super.mouseY > j * placement && super.mouseY < placement + j * placement) {
                 k = 0xff0000;
             }
-            surface.drawString(optionMenuEntry[j], 6, 12 + j * 12, 1, k);
+            surface.drawString(optionMenuEntry[j], 8, 6+placement + j * placement, 1, k);
         }
 
     }
@@ -3073,7 +3070,7 @@ OUTER:		for (int animationIndex = 0; animationIndex < EntityManager.getAnimation
 
     private void drawChatMessageTabs() {
         /* bottom blue bar */
-        int OFFSET = 28;
+        int OFFSET = 30;
         surface.drawSprite(0, gameHeight-OFFSET, spriteMedia + 22);
         /* extended bottom blue bar */
         surface.drawSprite(gameWidth - 512, gameHeight-OFFSET, spriteMedia + 22);
@@ -3086,7 +3083,7 @@ OUTER:		for (int animationIndex = 0; animationIndex < EntityManager.getAnimation
         if (messageTabFlashAll % 30 > 15) {
             col = Surface.rgb2long(255, 50, 50);
         }
-        surface.drawStringCenter("All messages", gameWidth / 2 - 200, gameHeight-OFFSET + 6, 0, col);
+        surface.drawStringCenter("All messages", gameWidth / 2 - 200, gameHeight-OFFSET + 12, 0, col);
         col = Surface.rgb2long(200, 200, 255);
         if (messageTabSelected == 1) {
             col = Surface.rgb2long(255, 200, 50);
@@ -3094,7 +3091,7 @@ OUTER:		for (int animationIndex = 0; animationIndex < EntityManager.getAnimation
         if (messageTabFlashHistory % 30 > 15) {
             col = Surface.rgb2long(255, 50, 50);
         }
-        surface.drawStringCenter("Chat history", gameWidth / 2 - 100, gameHeight-OFFSET + 6, 0, col);
+        surface.drawStringCenter("Chat history", gameWidth / 2 - 100, gameHeight-OFFSET + 12, 0, col);
         col = Surface.rgb2long(200, 200, 255);
         if (messageTabSelected == 2) {
             col = Surface.rgb2long(255, 200, 50);
@@ -3102,7 +3099,7 @@ OUTER:		for (int animationIndex = 0; animationIndex < EntityManager.getAnimation
         if (messageTabFlashQuest % 30 > 15) {
             col = Surface.rgb2long(255, 50, 50);
         }
-        surface.drawStringCenter("Quest history", gameWidth / 2, gameHeight-OFFSET + 6, 0, col);
+        surface.drawStringCenter("Quest history", gameWidth / 2, gameHeight-OFFSET + 12, 0, col);
         col = Surface.rgb2long(200, 200, 255);
         if (messageTabSelected == 3) {
             col = Surface.rgb2long(255, 200, 50);
@@ -4527,7 +4524,7 @@ OUTER:		for (int animationIndex = 0; animationIndex < EntityManager.getAnimation
                 s = s + "@whi@ / " + (menuItemsCount - 1) + " more options";
             }
             if (s != null) {
-                surface.drawString(s, 6, 14, 1, 0xffff00);
+                surface.drawString(s, 12, 19, 1, 0xffff00); //options menu top lefthand corner height 12 and width is 19
             }
             if (!optionMouseButtonOne && mouseButtonClick == 1 || optionMouseButtonOne && mouseButtonClick == 1 && menuItemsCount == 1) {
                 menuItemClick(menuIndices[0]);
