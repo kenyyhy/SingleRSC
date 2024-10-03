@@ -3073,7 +3073,7 @@ OUTER:		for (int animationIndex = 0; animationIndex < EntityManager.getAnimation
 
     private void drawChatMessageTabs() {
         /* bottom blue bar */
-        int OFFSET = 20;
+        int OFFSET = 28;
         surface.drawSprite(0, gameHeight-OFFSET, spriteMedia + 22);
         /* extended bottom blue bar */
         surface.drawSprite(gameWidth - 512, gameHeight-OFFSET, spriteMedia + 22);
