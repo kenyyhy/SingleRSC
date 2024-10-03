@@ -1202,6 +1202,9 @@ public class mudclient extends Shell {
         int y = 167 - i / 2 + yOff;
         surface.drawBox(56 + xOff, 167 - i / 2 + yOff, 400, i, 0);
         surface.drawBoxEdge(56 + xOff, 167 - i / 2 + yOff, 400, i, 0xffffff);
+        y += 20;
+        surface.drawStringCenter("Welcome to RuneScape " + Util.title(loginUser), 256 + xOff, y, 4, 0xffff00);
+        y += 30;
         String s;
         switch (welcomeLastLoggedInDays) {
             case 0:
