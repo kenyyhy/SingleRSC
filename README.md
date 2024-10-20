@@ -10,7 +10,7 @@ RSC Single Player is a standalone single player RSC reproduction and sandbox. Th
 * Login and play
 
 
-* To compile use ant version 8 and use ant compile in the terminal
+* To compile use ant and use ant compile in the terminal
     
 # Game Information
 * Music player replaced Social tab
