@@ -25,6 +25,7 @@ RSC Single Player is a standalone single player RSC reproduction and sandbox. Th
 * You do not have to sleep
 * If you do sleep you gain health
 * Sends everything to bank when you die even in wilderness
+* You can type ::tele <city> and the game will teleport you there
 # Media
 
 ![picture alt](https://nemotech.org/rsc/rsc-1.png "RSCSP1")
